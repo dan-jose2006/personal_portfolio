@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Smith - Interactive Portfolio</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 56px;
+            color: #333;
+        }
+        
+        /* --- Sections & Animation --- */
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Fade-in animation for sections on scroll */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: #2c3e50;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-weight: 700;
+        }
+        /* Style for the animated typing cursor */
+        .typed-cursor {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* --- Portfolio Gallery --- */
+        #portfolio {
+            background-color: #f8f9fa;
+        }
+        .filter-buttons .btn {
+            margin: 0 5px;
+            font-weight: 600;
+        }
+        .filter-buttons .btn.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .portfolio-item {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .portfolio-card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        /* --- Contact Form --- */
+        #form-message.success { color: #28a745; }
+        #form-message.error { color: #dc3545; }
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#">Jamy Smith</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-4">Jamy Smith</h1>
+            <p class="lead">I am a <span id="typed-element"></span></p>
+        </div>
+    </header>
+
+    <section id="about" class="section-hidden">
+        <div class="container">
+            <h2 class="text-center mb-4">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="profile.png" class="img-fluid rounded-circle mb-3" alt="Profile Picture">
+                </div>
+                <div class="col-md-8">
+                    <p>My journey into technology began with a passion for graphic design, which quickly evolved into a love for building interactive and user-friendly web applications. After starting my career in design, I transitioned to front-end development to bring my visual concepts to life. Over the last few years, I've expanded my skills to include back-end technologies, allowing me to build complete, robust solutions from start to finish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section-hidden">
+        <div class="container">
+            <h2 class="text-center mb-4">Portfolio Gallery</h2>
+            
+            <div class="row mb-5">
+                <div class="col-12 text-center filter-buttons">
+                    <button class="btn btn-outline-primary active" data-filter="all">All</button>
+                    <button class="btn btn-outline-primary" data-filter="development">Development</button>
+                    <button class="btn btn-outline-primary" data-filter="design">Web Design</button>
+                    <button class="btn btn-outline-primary" data-filter="branding">Branding</button>
+                </div>
+            </div>
+
+            <div class="row portfolio-container">
+                <div class="col-md-4 mb-4 portfolio-item development">
+                    <div class="card portfolio-card">
+                        <img src="image 1.png" class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">Task Management App</h5>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 portfolio-item design">
+                    <div class="card portfolio-card">
+                        <img src="image 2.png" class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">E-commerce Website</h5>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 portfolio-item branding">
+                    <div class="card portfolio-card">
+                        <img src="image 3.png"class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">Company Rebranding</h5>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-4 mb-4 portfolio-item development">
+                    <div class="card portfolio-card">
+                        <img src="image 4.png" class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">Weather Dashboard</h5>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-hidden">
+        <div class="container">
+            <h2 class="text-center mb-4">Get In Touch</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <form id="contact-form">
+                        <div class="form-group"><input type="text" class="form-control" placeholder="Your Name" required></div>
+                        <div class="form-group"><input type="email" class="form-control" placeholder="Your Email" required></div>
+                        <div class="form-group"><textarea class="form-control" placeholder="Your Message" rows="5" required></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                    <div id="form-message" class="mt-3 text-center font-weight-bold"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Jane Smith. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        $(document).ready(function() {
+            // --- FEATURE: Animated Typing ---
+            var options = {
+                strings: ['Full-Stack Developer', 'UI/UX Enthusiast', 'Creative Problem Solver'],
+                typeSpeed: 50,
+                backSpeed: 25,
+                loop: true
+            };
+            var typed = new Typed('#typed-element', options);
+
+            // --- FEATURE: Portfolio Filtering ---
+            $('.filter-buttons .btn').on('click', function() {
+                $('.filter-buttons .btn').removeClass('active');
+                $(this).addClass('active');
+
+                var filterValue = $(this).attr('data-filter');
+                if (filterValue == 'all') {
+                    $('.portfolio-item').fadeIn('slow');
+                } else {
+                    $('.portfolio-item').fadeOut(0);
+                    $('.portfolio-item.' + filterValue).fadeIn('slow');
+                }
+            });
+
+            // --- FEATURE: Fade-in sections on scroll ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        $(entry.target).addClass('section-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            $('.section-hidden').each(function() {
+                observer.observe(this);
+            });
+
+            // --- Contact Form Submission ---
+            $('#contact-form').on('submit', function(event) {
+                event.preventDefault(); 
+                $('#form-message').text('Thank you! Your message has been sent.').addClass('success');
+                $('#contact-form')[0].reset();
+            });
+        });
+    </script>
+</body>
+</html>
